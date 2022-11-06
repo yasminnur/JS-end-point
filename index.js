@@ -347,6 +347,32 @@ app.post("/bmi", (req, res) => {
 
 //================================================================================
 
+
+//               TUPRAK 5
+// end-point "GANJIL GENAP" dengan method POST 
+app.post("/angka", (req, res) => {
+    let angka = Number(req.body.angka)
+
+    var status = ""
+//check if the number is even
+if(angka % 2 == 0) 
+    status = "Ini adalah angka GENAP"
+
+
+// if the number is odd
+else 
+    status = "Ini adalah angka GANJIL"
+
+     
+    let response = {
+        angka: angka,
+        status: status
+    }
+    
+    res.json(response)
+})
+
+//======================================================================================================================
 app.listen(8000, () => {
     console.log("Server run on port 8000");
 })
